@@ -35,9 +35,12 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-    min-height: 100vh;
+    height: 100vh;
     text-rendering: optimizeSpeed;
-    line-height: 1.5;
+    line-height: 1.5; 
+    background-image:url(../img/yuriy-bogdanov-W51VK3Obcj0-unsplash.jpg);
+background-size: 100%;
+background-repeat: no-repeat;
 }
 
 /* A elements that don't have a class get default styles */
@@ -48,8 +51,9 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-    max-width: 100%;
+    max-width: 40%;
     display: block;
+    margin-top: 5%;
 }
 
 /* Inherit fonts for inputs and buttons */
