@@ -12,7 +12,6 @@ const moneyTracker = document.querySelector('#money');
 const mpsTracker = document.querySelector('#mps'); // money per second
 const mpcTracker = document.querySelector('#mpc'); // money per click
 const upgradeList = document.querySelector('#upgradelist');
-
 const msgbox = document.querySelector('#msgbox');
 const audio = new Audio('https://www.soundjay.com/buttons/sounds/button-3.mp3')
 const button = document.querySelector('button')
@@ -32,7 +31,21 @@ let moneyPerClick = 1;
 let moneyPerSecond = 0;
 let last = 0;
 
-let achievementTest = false;
+let achievements = [
+    {
+        name: 'fossil',
+        description: 'Du har hittat en FOSSIL!',
+        value: 10,
+        acquired: false
+    },
+    {
+        name: 'arkeolog',
+        description: 'Du har hittat en mumifierad arkeolog!',
+        value: 20,
+        acquired: false
+    }
+]
+
 
 
 /* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
@@ -88,11 +101,12 @@ function step(timestamp) {
     // achievements. Titta dock på upgrades arrayen och gör något rimligare om du
     // vill ha achievements.
     // på samma sätt kan du även dölja uppgraderingar som inte kan köpas
-    if (moneyPerClick == 10 && !achievementTest) {
-        achievementTest = true;
-        message('Du har hittat en FOSSIL!', 'achievement');
-    }
-
+    achievements.forEach(achievement => {
+        if (acquiredUpgrades >= achievement.value && !achievement.acquired) {
+            achievement.acquired = true;
+            message(achievement.description, 'achievement');
+        }
+    });
     window.requestAnimationFrame(step);
 }
 
