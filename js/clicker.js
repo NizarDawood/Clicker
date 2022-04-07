@@ -184,7 +184,7 @@ function createCard(upgrade) {
             moneyPerSecond += upgrade.amount;
             message('Grattis du har lockat till dig fler köpare!', 'success');
         } else {
-            message('Du har inte råd.', 'warning');
+            message('Du har intee råd.', 'warning');
         }
     });
 
