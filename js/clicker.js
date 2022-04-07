@@ -12,7 +12,13 @@ const moneyTracker = document.querySelector('#money');
 const mpsTracker = document.querySelector('#mps'); // money per second
 const mpcTracker = document.querySelector('#mpc'); // money per click
 const upgradeList = document.querySelector('#upgradelist');
+
 const msgbox = document.querySelector('#msgbox');
+const audio = new Audio('https://www.soundjay.com/buttons/sounds/button-3.mp3')
+const button = document.querySelector('button')
+button.addEventListener('click', (e) => {
+  audio.play()
+})
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -28,6 +34,7 @@ let last = 0;
 
 let achievementTest = false;
 
+
 /* Med ett valt element, som knappen i detta fall så kan vi skapa listeners
  * med addEventListener så kan vi lyssna på ett specifikt event på ett html-element
  * som ett klick.
@@ -38,6 +45,7 @@ let achievementTest = false;
  * money.
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  */
+
 clickerButton.addEventListener(
     'click',
     () => {
@@ -46,7 +54,16 @@ clickerButton.addEventListener(
         // console.log(clicker.score);
     },
     false
+    
+
+    
 );
+
+    function PlaySound(soundObj) {
+        var sound = document.getElementById(soundObj);
+        sound.Play();
+    }
+
 
 /* För att driva klicker spelet så kommer vi att använda oss av en metod som heter
  * requestAnimationFrame.
@@ -107,21 +124,25 @@ window.addEventListener('load', (event) => {
  */
 upgrades = [
     {
-        name: 'Fin sop',
+        name: 'lat odlare ',
         cost: 10,
         amount: 1,
+        
     },
     {
-        name: 'Spade',
+        name: 'super odlare',
         cost: 100,
         amount: 10,
     },
     {
-        name: 'Hjälpreda',
+        name: 'Traktor-X500 ',
         cost: 1000,
-        amount: 100,
+        amount: 200,
     },
+    
 ];
+
+
 
 /* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
  * ett html kort för det.
@@ -142,23 +163,26 @@ upgrades = [
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
  */
 function createCard(upgrade) {
+    
     const card = document.createElement('div');
+    
     card.classList.add('card');
     const header = document.createElement('p');
     header.classList.add('title');
     const cost = document.createElement('p');
 
     header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
-    cost.textContent = `Köp för ${upgrade.cost} benbitar.`;
+    cost.textContent = `Köp för ${upgrade.cost} så.`;
+    
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
             moneyPerClick++;
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
-            cost.textContent = 'Köp för ' + upgrade.cost + ' benbitar';
+            cost.textContent = 'Köp för ' + upgrade.cost + ' så';
             moneyPerSecond += upgrade.amount;
-            message('Grattis du har lockat till dig fler besökare!', 'success');
+            message('Grattis du har lockat till dig fler köpare!', 'success');
         } else {
             message('Du har inte råd.', 'warning');
         }
@@ -184,4 +208,5 @@ function message(text, type) {
     setTimeout(() => {
         p.parentNode.removeChild(p);
     }, 2000);
+    
 }

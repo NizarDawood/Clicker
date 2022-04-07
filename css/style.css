@@ -18,7 +18,7 @@ figure,
 blockquote,
 dl,
 dd {
-    margin: 0;
+    font-size: xx-large;
     padding: 0;
 }
 
@@ -35,12 +35,16 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
+   
+    font-family: 'Satisfy', cursive;   
     height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5; 
     background-image:url(../img/yuriy-bogdanov-W51VK3Obcj0-unsplash.jpg);
-background-size: 100%;
-background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+     background-size: cover;
 }
 
 /* A elements that don't have a class get default styles */
@@ -93,9 +97,9 @@ select {
 body {
     display: flex;
     flex-direction: column;
-    background-color: #f8f8f8;
+    
+    height: 100vh;
     color: #121212;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 /* För att göra footern sticky så har vi flex på bodyn och då räcker det med 
  * margin-top auto här.
