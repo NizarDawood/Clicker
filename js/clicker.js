@@ -127,16 +127,15 @@ upgrades = [
         name: 'lat odlare ',
         cost: 10,
         amount: 1,
-        
     },
     {
         name: 'super odlare',
         cost: 100,
-        amount: 10,
+        amount: 19,
     },
     {
         name: 'Traktor-X500 ',
-        cost: 1000,
+        cost: 10000,
         amount: 200,
     },
     
@@ -172,7 +171,8 @@ function createCard(upgrade) {
     const cost = document.createElement('p');
 
     header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
-    cost.textContent = `Köp för ${upgrade.cost} så.`;
+    cost.textContent = <img src="./img/person3.png" alt="" width="250px" height="300px"/>
+    "Köp för ${upgrade.cost} $$.,
     
 
     card.addEventListener('click', (e) => {
@@ -180,7 +180,7 @@ function createCard(upgrade) {
             moneyPerClick++;
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
-            cost.textContent = 'Köp för ' + upgrade.cost + ' så';
+            cost.textContent = 'Köp för ' + upgrade.cost + '$$';
             moneyPerSecond += upgrade.amount;
             message('Grattis du har lockat till dig fler köpare!', 'success');
         } else {

@@ -6,7 +6,12 @@
 *::after {
     box-sizing: border-box;
 }
-
+html body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
 /* Remove default margin */
 body,
 h1,
@@ -18,7 +23,6 @@ figure,
 blockquote,
 dl,
 dd {
-    font-size: xx-large;
     padding: 0;
 }
 
@@ -36,8 +40,8 @@ html:focus-within {
 /* Set core body defaults */
 body {
    
-    font-family: 'Satisfy', cursive;   
-    height: 100vh;
+    font-family: 'Oswald', sans-serif;     
+       height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5; 
     background-image:url(../img/yuriy-bogdanov-W51VK3Obcj0-unsplash.jpg);
@@ -178,7 +182,9 @@ footer {
 #click {
     width: 8rem;
     height: 8rem;
-    font-size: 2rem;
+    font-size: 8rem;
+    align-items: center;
+    justify-content: center;
 }
 
 /* #msgbox är elementet som visar sidans toasts, popupmeddelanden
@@ -197,20 +203,23 @@ footer {
     padding: 1rem;
 }
 
+.p {
+    font-size: xx-large;
+}
 /* de här klasserna används för att bestämma stilen på de olika storternas
  * meddelanden. Javascript används för att lägga till stilen på meddelandet
  */
 .warning {
-    background-color: palevioletred;
+    background-color: rgba(253, 2, 86, 0.416);
 }
 
 .success {
-    background-color: mediumspringgreen;
+    background-color: rgba(234, 88, 15, 0.434);
 }
 
 .achievement {
     color: #121212;
-    background-color: rebeccapurple;
+    background-color: rgba(127, 6, 248, 0.329);
 }
 
 /* dessa kort används för spelets uppgraderingar 
@@ -221,14 +230,12 @@ footer {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    border: 1px solid #646464;
+    border: 1px solid #000000;
     margin: 0.5rem 0;
     padding: 1rem 0.5rem;
 }
 
-.card:hover {
-    background-color: #dfdfdf;
-}
+
 /* klassen används på kortets titel, font-weight: 600 gör fonten fetare, en normal
  * font vikt är oftast 400
  */
