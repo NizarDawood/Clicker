@@ -127,6 +127,7 @@ upgrades = [
         name: 'lat odlare ',
         cost: 10,
         amount: 1,
+
     },
     {
         name: 'super odlare',
@@ -171,8 +172,7 @@ function createCard(upgrade) {
     const cost = document.createElement('p');
 
     header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
-    cost.textContent = <img src="./img/person3.png" alt="" width="250px" height="300px"/>
-    "Köp för ${upgrade.cost} $$.,
+    cost.textContent = `Köp för ${upgrade.cost} $$.`;
     
 
     card.addEventListener('click', (e) => {
